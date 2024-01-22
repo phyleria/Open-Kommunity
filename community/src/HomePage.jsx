@@ -31,7 +31,7 @@ function HomePage() {
               alt="student community gthering"
             /> */}
             <div className="hero-text">
-              <h1>Open-Kommunity is your ticket to belonging.</h1>
+              <h1>Find Your Tribe.Find Your Purpose.</h1>
             </div>
           </div>
         </section>
