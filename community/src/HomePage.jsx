@@ -4,35 +4,29 @@ import "./Homepage.css"; // Import your CSS file for styling
 function HomePage() {
   return (
     <div className="homepage">
-      <header>
+      <header className="hero-header">
         <nav>
-          <ul>
-            <li>
-              <a href="#Home">Home</a>
-            </li>
-            <li>
-              <a href="#About Us">About Us</a>
-            </li>
-            <li>
-              <a href="#Events">Events</a>
-            </li>
-            <li>
-              <button className="join-us-button">Join Us</button>
-            </li>
-          </ul>
+          <div className="nav-links">
+            <ul>
+              <li>
+                <a href="#Home">Home</a>
+              </li>
+              <li>
+                <a href="#About Us">About Us</a>
+              </li>
+              <li>
+                <a href="#Events">Events</a>
+              </li>
+            </ul>
+            <button className="join-us-button">Join Our Club</button>
+          </div>
         </nav>
       </header>
 
       <main>
         <section className="hero-section">
-          <div className="hero-image-container">
-            {/* <img
-              src="path/to/your/background-image.jpg"
-              alt="student community gthering"
-            /> */}
-            <div className="hero-text">
-              <h1>Find Your Tribe.Find Your Purpose.</h1>
-            </div>
+          <div className="hero-text">
+            <h1>Find Your Tribe.Find Your Purpose.</h1>
           </div>
         </section>
 

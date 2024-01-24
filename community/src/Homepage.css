@@ -1,23 +1,19 @@
-/* HomePage.css */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap");
 
-.homepage {
-  font-family: monospace;
-  font-size: large;
+body {
+  margin: 0;
+  font-family: "Comfortaa", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #fff; /* Adjust as needed */
-}
-
-header {
-  background-color: #fff; /* Adjust as needed */
-  color: #fff;
-  padding: 1rem;
+  background-size: cover;
+  background-position: center;
 }
 
 nav {
   flex: 1;
   text-align: right;
+  background-color: #000000;
 }
 
 nav ul {
@@ -27,26 +23,38 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin-right: 70px;
+  margin-right: 100px;
+  margin-top: 5%;
 }
 
 a {
-  color: #333;
+  color: #ffffff;
   text-decoration: none;
+  text-align: center;
 }
 
+/* .logo {
+  max-height: 100px;
+  margin-right: 700px;
+} */
 .join-us-button {
-  background-color: #ff5733; /* Adjust color as needed */
-  color: #fff;
+  background-color: #fe9f29;
+  color: #000000;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 25px;
   cursor: pointer;
+  align-items: right;
+  font-family: "comfortaa";
 }
 
-main {
+/* main {
   flex: 1;
   padding: 2rem;
+} */
+
+.nav-links {
+  margin-right: 30%;
 }
 
 section {
@@ -54,26 +62,19 @@ section {
 }
 
 .hero-section {
-  height: 570px; /* Adjust as needed */
-  background-image: url("https://cdn.gencraft.com/prod/user/0334514d-b885-41d5-a977-72f84a49435a/63baa18d-467c-4ac7-b729-dce3588d20f3/image/image0_0.jpg?Expires=1705976760&Signature=M4KoPlOyg5XMbn~uTpu9VPvQ2P5pnTErIiDHehNMd5NyACYBttIhMg6NDD7ENyB5TWvp7-fiiyC8YSm5wNuHCyg5kYb-nhUk-GVQPFeZIV~byTE4AU-EWfYeQMxamk1Wpeth~dCklJtyMmyJ72g9xGySoMPVvF-XcYxI-C~C0LgSo8X2eUr8eqBGrUwOynHKu6vTnZhLiF69h85ZBSeNA8zx4RndSZ9f0oe1QgnC2-MIVi~tGwFvBG7kK7JFrJzycaFb3yHsKsl9ioELlmKiVOKRJwmu1nO65UEe1MvF6dKGl7heueYr14nH7v7E7O0lstlwyU4z~b8NxoWKLtvNmw__&Key-Pair-Id=K3RDDB1TZ8BHT8");
+  height: 670px;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #000000;
 }
 
 .hero-text {
   color: #fff;
   text-align: center;
 }
-
-/* .about-us-section {
-   
-} */
-
-/* .featured-events-section {
-} */
 
 .event-cards {
   display: flex;
@@ -82,7 +83,7 @@ section {
 }
 
 .event-card {
-  width: 300px; /* Adjust as needed */
+  width: 300px;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -92,7 +93,7 @@ section {
 
 /* Footer styles */
 footer {
-  background-color: #333; /* Adjust as needed */
+  background-color: #333;
   color: #fff;
   padding: 1rem;
 }
