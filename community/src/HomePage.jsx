@@ -26,7 +26,15 @@ function HomePage() {
       <main>
         <section className="hero-section">
           <div className="hero-text">
-            <h1>Find Your Tribe.Find Your Purpose.</h1>
+            <div className="float-animation">
+              <h1 style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>
+                Find Your Tribe
+              </h1>
+              <h2 style={{ fontSize: "6rem", marginTop: "0" }}>
+                Find Your Purpose.
+              </h2>
+              <button className="join-button">Join Our Club</button>
+            </div>
           </div>
         </section>
 

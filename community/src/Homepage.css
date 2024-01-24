@@ -48,11 +48,6 @@ a {
   font-family: "comfortaa";
 }
 
-/* main {
-  flex: 1;
-  padding: 2rem;
-} */
-
 .nav-links {
   margin-right: 30%;
 }
@@ -71,9 +66,36 @@ section {
   background-color: #000000;
 }
 
+.join-button {
+  background-color: #fe9f29;
+  color: #000000;
+  padding: 1rem 2rem; /* Adjust the padding as needed */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.2rem; /* Adjust the font-size as needed */
+  font-family: Comfortaa;
+}
+
 .hero-text {
   color: #fff;
   text-align: center;
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.float-animation {
+  animation: floatAnimation 4s ease-in-out infinite;
 }
 
 .event-cards {
