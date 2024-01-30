@@ -39,12 +39,25 @@ function HomePage() {
         </section>
 
         <section className="about-us-section">
-          <h2>About Us</h2>
-          <p>sguehfgehifheugfehiehfuheiheijfi</p>
+          <div className="about-container">
+            <div className="about-heading">
+              <h2>About Us</h2>
+            </div>
+            <div className="about-content">
+              <p>
+                Open Kommunity brings people together to share ideas and work on
+                projects that make a difference.
+                <br /> We believe that when we collaborate, we can create
+                positive changes in our community.
+                <br /> Join us as we build a better world, one project at a
+                time.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section className="featured-events-section">
-          <h2>Featured Events</h2>
+          <h3>Featured Events</h3>
           <div className="event-cards">
             {/* Add individual event cards here */}
             <div className="event-card">

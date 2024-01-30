@@ -55,6 +55,27 @@ a {
 section {
   margin-bottom: 2rem;
 }
+.about-container {
+  display: flex;
+  align-items: center;
+}
+
+.about-heading {
+  flex: 0 0 auto;
+  margin-right: 90px;
+  margin-left: 95px;
+  font-size: 70%;
+  margin-top: 5%;
+  color: #fe9f29;
+}
+
+.about-content {
+  flex: 1 1 auto;
+  margin-right: 20px;
+  font-size: 20px;
+  margin-top: 3%;
+  margin-top: 5%;
+}
 
 .hero-section {
   height: 670px;
@@ -96,6 +117,18 @@ section {
 
 .float-animation {
   animation: floatAnimation 4s ease-in-out infinite;
+}
+
+/* featured events section  */
+
+.featured-events-section {
+  margin-top: 10%;
+}
+
+h3 {
+  color: #fe9f29;
+  margin-left: 40%;
+  font-size: 40px;
 }
 
 .event-cards {
