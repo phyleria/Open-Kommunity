@@ -44,14 +44,14 @@ function HomePage() {
               <h2>About Us</h2>
             </div>
             <div className="about-content">
-              <p>
+              <h5>
                 Open Kommunity brings people together to share ideas and work on
                 projects that make a difference.
                 <br /> We believe that when we collaborate, we can create
                 positive changes in our community.
                 <br /> Join us as we build a better world, one project at a
                 time.
-              </p>
+              </h5>
             </div>
           </div>
         </section>
@@ -61,9 +61,34 @@ function HomePage() {
           <div className="event-cards">
             {/* Add individual event cards here */}
             <div className="event-card">
-              <img src="path/to/event1-image.jpg" alt="" />
+              <img
+                src="https://images.unsplash.com/photo-1576085898323-218337e3e43c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1lZXR1cCUyMGFmcmljYW58ZW58MHx8MHx8fDA%3D"
+                alt=""
+              />
               <div className="event-details">
-                <h3>Event Name 1</h3>
+                <h4>Monthly Community Meetup</h4>
+                <p>Date: 2024-01-25</p>
+                <p>Time: 7:00 PM</p>
+              </div>
+            </div>
+            <div className="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFmcmljYW4lMjB1bml2ZXJzaXR5JTIwc3R1ZGVudHN8ZW58MHx8MHx8fDA%3D"
+                alt=""
+              />
+              <div className="event-details">
+                <h4>Guest Speaker Session</h4>
+                <p>Date: 2024-01-25</p>
+                <p>Time: 7:00 PM</p>
+              </div>
+            </div>
+            <div className="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1551731409-43eb3e517a1a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWZyaWNhbiUyMHVuaXZlcnNpdHklMjBzdHVkZW50c3xlbnwwfHwwfHx8MA%3D%3D"
+                alt=""
+              />
+              <div className="event-details">
+                <h4>Open Talk Baraza</h4>
                 <p>Date: 2024-01-25</p>
                 <p>Time: 7:00 PM</p>
               </div>
@@ -71,9 +96,66 @@ function HomePage() {
             {/* Add more event cards as needed */}
           </div>
         </section>
+        <section className="featured-stats-section">
+          <div className="stats-box">+500 members</div>
+          <div className="stats-box">+26 partners</div>
+          <div className="stats-box">+20 events</div>
+          <div className="stats-box">+100 impacted</div>
+        </section>
       </main>
 
-      <footer>{/* Add footer content here */}</footer>
+      <footer>
+        <footer>
+          <div class="footer-container">
+            <div class="footer-section">
+              <h4>About Us</h4>
+              <p>Information about your company or organization.</p>
+            </div>
+            <div class="footer-section">
+              <h4>Quick Links</h4>
+              <ul>
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">About us</a>
+                </li>
+                <li>
+                  <a href="#">Events</a>
+                </li>
+                <li>
+                  <a href="#">Join us</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Contact Us</h4>
+              <p>Email: info@open.com</p>
+              <p>Phone: +254 738 2782 28</p>
+            </div>
+            <div class="footer-section">
+              <h4>Follow Us</h4>
+              <ul className="social-icons">
+                <li>
+                  <a href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </footer>
     </div>
   );
 }
