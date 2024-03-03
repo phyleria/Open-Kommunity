@@ -1,5 +1,6 @@
 import React from "react";
-import "./Homepage.css"; // Import your CSS file for styling
+import "./Homepage.css";
+import { Link } from "react-scroll";
 
 function HomePage() {
   return (
@@ -9,13 +10,19 @@ function HomePage() {
           <div className="nav-links">
             <ul>
               <li>
-                <a href="#Home">Home</a>
+                <Link to="hero-section" smooth={true} duration={500}>
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#About Us">About Us</a>
+                <Link to="about-us-section" smooth={true} duration={500}>
+                  About Us
+                </Link>
               </li>
               <li>
-                <a href="#Events">Events</a>
+                <Link to="featured-events-section" smooth={true} duration={500}>
+                  Events
+                </Link>
               </li>
             </ul>
             <button className="join-us-button">Join Our Club</button>
@@ -59,7 +66,6 @@ function HomePage() {
         <section className="featured-events-section">
           <h3>Featured Events</h3>
           <div className="event-cards">
-            {/* Add individual event cards here */}
             <div className="event-card">
               <img
                 src="https://images.unsplash.com/photo-1576085898323-218337e3e43c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1lZXR1cCUyMGFmcmljYW58ZW58MHx8MHx8fDA%3D"
@@ -93,8 +99,10 @@ function HomePage() {
                 <p>Time: 7:00 PM</p>
               </div>
             </div>
-            {/* Add more event cards as needed */}
           </div>
+          <a href="community/src/events.jsx" className="view-more-button">
+            View More Events
+          </a>
         </section>
         <section className="featured-stats-section">
           <div className="stats-box">+500 members</div>
@@ -109,7 +117,9 @@ function HomePage() {
           <div class="footer-container">
             <div class="footer-section">
               <h4>About Us</h4>
-              <p>Information about your company or organization.</p>
+              <p>
+                Fostering collaboration through open-source projects and events.
+              </p>
             </div>
             <div class="footer-section">
               <h4>Quick Links</h4>
