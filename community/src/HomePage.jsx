@@ -100,9 +100,10 @@ function HomePage() {
               </div>
             </div>
           </div>
-          <a href="community/src/events.jsx" className="view-more-button">
+
+          <Link to="/main-events-page" className="view-more-button">
             View More Events
-          </a>
+          </Link>
         </section>
         <section className="featured-stats-section">
           <div className="stats-box">+500 members</div>
