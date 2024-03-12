@@ -101,9 +101,9 @@ function HomePage() {
             </div>
           </div>
 
-          <Link to="/main-events-page" className="view-more-button">
+          <a href="/main-events-page" className="view-more-button">
             View More Events
-          </Link>
+          </a>
         </section>
         <section className="featured-stats-section">
           <div className="stats-box">+500 members</div>
