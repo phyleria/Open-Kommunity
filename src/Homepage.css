@@ -85,7 +85,9 @@ section {
   /* width: 40%; */
   margin-top: 13%;
   size: 200cap;
+  box-shadow: 0px 0px 10px #fe9f29;
 }
+
 .image-container {
   margin: 0;
   padding: 0;
@@ -356,4 +358,64 @@ ul li {
 
 .social-icons li:last-child {
   margin-right: 0;
+}
+
+/*Signup form*/
+
+.signup-form {
+  width: 400px;
+  height: 600px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(233, 159, 10, 0.1); /* Add subtle shadow for depth */
+}
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signup-form img {
+  margin-left: 7%;
+}
+.signup-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="tel"],
+.signup-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  border: 1px solid #ccc; /* Add border to input fields */
+  border-radius: 10px; /* Add slight roundness to input fields */
+}
+
+.signup-form input[type="text"]:focus,
+.signup-form input[type="email"]:focus,
+.signup-form input[type="tel"]:focus,
+.signup-form input[type="password"]:focus {
+  outline: none; /* Remove default browser outline on focus */
+  border-color: #fe9f29; /* Change border color to highlight focused field */
+}
+
+.signup-form button[type="submit"] {
+  background-color: #fe9f29;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px; /* Add roundness to submit button */
+  cursor: pointer;
+  margin-left: 40%;
+  margin-top: 7%;
+}
+
+.signup-form button[type="submit"]:hover {
+  background-color: #fe9f29; /* Change button color on hover for better interactivity */
 }

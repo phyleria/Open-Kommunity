@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
-import "./Homepage.css"; // Import CSS file for styling
+import "./Homepage.css";
 import { Link } from "react-scroll";
 
 function MainEventsPage() {
-  const [events, setEvents] = useState([]); // State to store events
+  const [events, setEvents] = useState([]);
   const maxEventsToDisplay = 3;
-  let fetchedEvents = []; // Control the number of events displayed horizontally
+  let fetchedEvents = [];
 
-  // Function to fetch or retrieve events (replace with your logic)
   const fetchEvents = async () => {
-    // ... your event data fetching logic (e.g., API call)
-    setEvents(fetchedEvents); // Update events state
+    setEvents(fetchedEvents);
   };
 
   useEffect(() => {
-    fetchEvents(); // Fetch events on component mount
+    fetchEvents();
   }, []);
 
   const upcomingEvents = events.filter(
@@ -149,7 +147,7 @@ function MainEventsPage() {
         </section>
       </main>
 
-      <footer>{/* Your footer content here */}</footer>
+      <footer></footer>
     </div>
   );
 }
