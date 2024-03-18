@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./MainEventsPage.css"; // Import CSS file for styling
+import "./Homepage.css"; // Import CSS file for styling
+import { Link } from "react-scroll";
 
 function MainEventsPage() {
   const [events, setEvents] = useState([]); // State to store events
@@ -24,12 +25,39 @@ function MainEventsPage() {
   );
 
   return (
-    <div className="main-events-page">
-      <header>{/* Your header content here */}</header>
+    <div className="main-events-page" style={{ backgroundColor: "black" }}>
+      <header className="header">
+        <nav>
+          <div className="nav-links">
+            <ul>
+              <li>
+                <a href="/" smooth={true} duration={500}>
+                  Home
+                </a>
+              </li>
+              <li>
+                <Link to="about-us-section" smooth={true} duration={500}>
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <a href="/main-events-page" smooth={true} duration={500}>
+                  Events
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <section className="banner-section" color="white">
+        <div className="banner-text">
+          <h2>Upcoming Events</h2>
+        </div>
+      </section>
 
       <main>
         <section className="upcoming-events-section">
-          <h2>Upcoming Events</h2>
           <div className="event-cards">
             <div className="event-card">
               <img
@@ -40,6 +68,7 @@ function MainEventsPage() {
                 <h4>Monthly Community Meetup</h4>
                 <p>Date: 2024-01-25</p>
                 <p>Time: 7:00 PM</p>
+                <button className="register-button">RSVP</button>
               </div>
             </div>
             <div className="event-card">
@@ -51,6 +80,7 @@ function MainEventsPage() {
                 <h4>Guest Speaker Session</h4>
                 <p>Date: 2024-01-25</p>
                 <p>Time: 7:00 PM</p>
+                <button className="register-button">RSVP</button>
               </div>
             </div>
             <div className="event-card">
@@ -62,17 +92,19 @@ function MainEventsPage() {
                 <h4>Open Talk Baraza</h4>
                 <p>Date: 2024-01-25</p>
                 <p>Time: 7:00 PM</p>
+                <button className="register-button">RSVP</button>
               </div>
             </div>
           </div>
+        </section>
 
-          <a href="#view-more" className="view-more-button">
-            View More Upcoming Events
-          </a>
+        <section className="banner-section-2" color="white">
+          <div className="banner-text">
+            <h2>Past Events</h2>
+          </div>
         </section>
 
         <section className="past-events-section">
-          <h2>Past Events</h2>
           <div className="event-cards">
             <div className="event-card">
               <img

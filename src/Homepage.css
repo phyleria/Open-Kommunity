@@ -87,6 +87,56 @@ section {
 h2 {
   font-size: 23px;
 }
+
+.upcoming-events-section h2 {
+  color: white;
+  margin-left: 43%;
+  margin-top: 3%;
+}
+
+.upcoming-events-section .event-cards {
+  margin-top: 5%;
+}
+
+.banner-section {
+  position: relative;
+  height: 80px;
+  width: 90%;
+  background-color: #fe9f29;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.banner-section-2 {
+  position: relative;
+  height: 80px;
+  width: 90%;
+  background-color: #fe9f29;
+  margin-left: 5%;
+  margin-top: -13%;
+  margin-bottom: 4%;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.register-button {
+  background-color: #fe9f29;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: right;
+  font-family: "comfortaa";
+}
 .hero-section {
   height: 100vh;
   background-size: cover;
@@ -100,11 +150,11 @@ h2 {
 .join-button {
   background-color: #fe9f29;
   color: #000000;
-  padding: 1rem 2rem; /* Adjust the padding as needed */
+  padding: 1rem 2rem;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 1.2rem; /* Adjust the font-size as needed */
+  font-size: 1.2rem;
   font-family: Comfortaa;
 }
 
