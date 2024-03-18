@@ -37,10 +37,6 @@ a {
   text-align: center;
 }
 
-/* .logo {
-  max-height: 100px;
-  margin-right: 700px;
-} */
 .join-us-button {
   background-color: #fe9f29;
   color: #000000;
@@ -84,8 +80,44 @@ section {
   margin-top: 5%;
 }
 
+.about-content img {
+  margin-left: 23%;
+  /* width: 40%; */
+  margin-top: 13%;
+  size: 200cap;
+}
+.image-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+  border-radius: 20%;
+  margin-left: -17%;
+}
+
+.image-container img {
+  border-radius: 5%;
+}
+.join-us-button1 {
+  margin-left: 30%;
+  background-color: #fe9f29;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  align-items: right;
+  font-family: "comfortaa";
+  margin-top: 10%;
+  height: 6vh;
+  margin-bottom: -3%;
+}
+
 h2 {
   font-size: 23px;
+  margin-top: -200%;
 }
 
 .upcoming-events-section h2 {
