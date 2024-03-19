@@ -26,7 +26,8 @@ function HomePage() {
               </li>
             </ul>
             <a href="/signup-form" className="join-us-button">
-              Join Our Club
+              {" "}
+              Sign Up
             </a>
           </div>
         </nav>
@@ -74,7 +75,7 @@ function HomePage() {
                   alt="Image 3"
                 />
               </div>
-              <button className="join-us-button1">Join Our Club</button>
+              <button className="join-us-button1">Read More</button>
             </div>
           </div>
         </section>

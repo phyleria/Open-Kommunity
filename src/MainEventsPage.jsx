@@ -50,7 +50,7 @@ function MainEventsPage() {
 
       <section className="banner-section" color="white">
         <div className="banner-text">
-          <h2>Upcoming Events</h2>
+          <p>Upcoming Events</p>
         </div>
       </section>
 
@@ -66,7 +66,9 @@ function MainEventsPage() {
                 <h4>Monthly Community Meetup</h4>
                 <p>Date: 2024-01-25</p>
                 <p>Time: 7:00 PM</p>
-                <button className="register-button">RSVP</button>
+                <a href="/event-rsvp-form" className="register-button">
+                  RSVP
+                </a>
               </div>
             </div>
             <div className="event-card">
@@ -78,7 +80,9 @@ function MainEventsPage() {
                 <h4>Guest Speaker Session</h4>
                 <p>Date: 2024-01-25</p>
                 <p>Time: 7:00 PM</p>
-                <button className="register-button">RSVP</button>
+                <a href="/event-rsvp-form" className="register-button">
+                  RSVP
+                </a>
               </div>
             </div>
             <div className="event-card">
@@ -90,7 +94,9 @@ function MainEventsPage() {
                 <h4>Open Talk Baraza</h4>
                 <p>Date: 2024-01-25</p>
                 <p>Time: 7:00 PM</p>
-                <button className="register-button">RSVP</button>
+                <a href="/event-rsvp-form" className="register-button">
+                  RSVP
+                </a>
               </div>
             </div>
           </div>
@@ -98,7 +104,7 @@ function MainEventsPage() {
 
         <section className="banner-section-2" color="white">
           <div className="banner-text">
-            <h2>Past Events</h2>
+            <p>Past Events</p>
           </div>
         </section>
 

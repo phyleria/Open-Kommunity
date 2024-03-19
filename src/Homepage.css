@@ -103,7 +103,7 @@ section {
   border-radius: 5%;
 }
 .join-us-button1 {
-  margin-left: 30%;
+  margin-left: 20%;
   background-color: #fe9f29;
   color: #000000;
   padding: 0.5rem 1rem;
@@ -369,8 +369,10 @@ ul li {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(233, 159, 10, 0.1); /* Add subtle shadow for depth */
+  box-shadow: 0 2px 5px rgba(181, 123, 7, 0.1);
+  background-color: #ffffff;
 }
+
 .signup-form h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -401,8 +403,8 @@ ul li {
 .signup-form input[type="email"]:focus,
 .signup-form input[type="tel"]:focus,
 .signup-form input[type="password"]:focus {
-  outline: none; /* Remove default browser outline on focus */
-  border-color: #fe9f29; /* Change border color to highlight focused field */
+  outline: none;
+  border-color: #fe9f29;
 }
 
 .signup-form button[type="submit"] {
@@ -417,5 +419,68 @@ ul li {
 }
 
 .signup-form button[type="submit"]:hover {
-  background-color: #fe9f29; /* Change button color on hover for better interactivity */
+  background-color: #d07800;
+}
+
+/*Main-events-page*/
+.main-events-page {
+  background-color: #ffffff;
+}
+
+/* EventRSVPForm.css */
+
+.event-rsvp-form {
+  width: 400px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.event-rsvp-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+button {
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f4eded;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  width: 370px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button {
+  background-color: #fe9f29;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 5%;
+}
+
+button:hover {
+  background-color: #d07800;
 }
