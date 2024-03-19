@@ -414,8 +414,9 @@ ul li {
   border: none;
   border-radius: 15px; /* Add roundness to submit button */
   cursor: pointer;
-  margin-left: 40%;
+  margin-left: 27%;
   margin-top: 7%;
+  width: 200px;
 }
 
 .signup-form button[type="submit"]:hover {
