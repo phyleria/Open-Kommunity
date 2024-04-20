@@ -362,65 +362,58 @@ ul li {
 
 /*Signup form*/
 
-.signup-form {
-  width: 400px;
-  height: 600px;
-  margin: 50px auto;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(181, 123, 7, 0.1);
-  background-color: #ffffff;
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.signup-form h2 {
-  text-align: center;
+.signup-heading {
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-.signup-form img {
-  margin-left: 7%;
+.signup-form {
+  background-color: #f2f2f2;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
 }
-.signup-form label {
-  display: block;
-  margin-bottom: 5px;
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
   font-weight: bold;
 }
 
-.signup-form input[type="text"],
-.signup-form input[type="email"],
-.signup-form input[type="tel"],
-.signup-form input[type="password"] {
+input {
   width: 100%;
   padding: 10px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-  border: 1px solid #ccc; /* Add border to input fields */
-  border-radius: 10px; /* Add slight roundness to input fields */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.signup-form input[type="text"]:focus,
-.signup-form input[type="email"]:focus,
-.signup-form input[type="tel"]:focus,
-.signup-form input[type="password"]:focus {
-  outline: none;
-  border-color: #fe9f29;
-}
-
-.signup-form button[type="submit"] {
+.signup-btn {
   background-color: #fe9f29;
-  color: white;
+  color: #fff;
   padding: 10px 20px;
+  font-size: 16px;
   border: none;
-  border-radius: 15px; /* Add roundness to submit button */
+  border-radius: 5px;
   cursor: pointer;
-  margin-left: 27%;
-  margin-top: 7%;
-  width: 200px;
+  transition: background-color 0.3s;
 }
 
-.signup-form button[type="submit"]:hover {
-  background-color: #d07800;
+.signup-btn:hover {
+  background-color: #b33f00;
 }
 
 /*Main-events-page*/
@@ -483,5 +476,61 @@ button {
 }
 
 button:hover {
-  background-color: #d07800;
+  background-color: #b33f00;
+}
+
+/*Login page*/
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  background-color: #f2f2f2;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.login-btn {
+  background-color: #fe9f29;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #b33f00;
 }

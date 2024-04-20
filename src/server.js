@@ -1,44 +1,35 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
-const bcrypt = require('bcrypt');
-const User = require('./models/User'); 
+const express = require("express")
+const mongoose = require("mongoose")
+const cors = require("cors")
+const RegisterModel = require('./model/Register')
 
-const app = express();
-const port = 3000;
 
-const uri = 'mongodb://localhost:27017/community';
 
-app.use(bodyParser.json());
+const app = express()
+app.use(cors())
+app.use(express.json())
 
-app.post('/signup-form', async (req, res) => {
-  let client;
-  try {
-    client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    await client.connect();
-    console.log('Connected to MongoDB');
+mongoose.connect("mongodb://127.0.0.1:27017/Community");
 
-    const db = client.db();
-    const usersCollection = db.collection('users');
-
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    req.body.password = hashedPassword;
-
-    const result = await usersCollection.insertOne(req.body);
-    console.log('New user added:', result.ops[0]);
-
-    res.status(201).json({ message: 'User created successfully', user: result.ops[0] });
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'An error occurred while creating the user' });
-  } finally {
-    if (client) {
-      await client.close();
-      console.log('Disconnected from MongoDB');
+app.post('/register', (req, res) =>{
+    const{email, password} = req.body;
+    RegisterModel.findOne({email:email})
+    .then(user =>{
+        if(user){
+        res.json("Already has an account")
     }
-  }
-});
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+    else{
+        RegisterModel.create({email: email, password: password})
+        .then(result => res.json("Account Created"))
+        .catch(err => res.json(err))
+
+    }
+    })
+    .catch(err => (res.json(err))
+)
+})
+
+app.listen(3001, () =>{
+    console.log("Server is running")
+})

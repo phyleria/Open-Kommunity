@@ -25,9 +25,9 @@ function HomePage() {
                 </Link>
               </li>
             </ul>
-            <a href="/signup-form" className="join-us-button">
+            <a href="/login-form" className="join-us-button">
               {" "}
-              Sign Up
+              Login
             </a>
           </div>
         </nav>
@@ -43,7 +43,9 @@ function HomePage() {
               <h2 style={{ fontSize: "6rem", marginTop: "0" }}>
                 Find Your Purpose.
               </h2>
-              <button className="join-button">Join Our Club</button>
+              <a href="/signup-form" class="join-button">
+                Join Our Club
+              </a>
             </div>
           </div>
         </section>
