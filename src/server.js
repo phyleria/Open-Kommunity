@@ -11,24 +11,28 @@ app.use(express.json())
 
 mongoose.connect("mongodb://127.0.0.1:27017/Community");
 
-app.post('/register', (req, res) =>{
+app.post('/login', (req, res) =>{
     const{email, password} = req.body;
     RegisterModel.findOne({email:email})
     .then(user =>{
         if(user){
-        res.json("Already has an account")
+            if(user.password === password) {
+                res.json("Success")
+            }
+            else{res.json("Password is incorrect")
+        }
     }
-
-    else{
-        RegisterModel.create({email: email, password: password})
+            else{res.json("No record exists")}
+    })
+})
+app.post('/register', (req,res) => {
+        RegisterModel.create(req.body)
         .then(result => res.json("Account Created"))
         .catch(err => res.json(err))
 
-    }
     })
-    .catch(err => (res.json(err))
-)
-})
+
+
 
 app.listen(3001, () =>{
     console.log("Server is running")

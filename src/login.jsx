@@ -8,36 +8,30 @@ function LoginForm() {
     email: "",
     password: "",
   });
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/login",
-        formData
-      ); // Corrected endpoint URL
-      console.log(response.data); // Log response data
-
-      // Check response data and navigate accordingly
-      if (response.data === "exist") {
-        history.push("/homepage"); // Redirect to homepage if user exists
-      } else if (response.data === "does not exist") {
-        alert("You are not signed in"); // Show alert if user does not exist
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Wrong details"); // Show alert for any error
-    }
+    axios
+      .post("http://localhost:3001/login", formData)
+      .then((result) => {
+        console.log(result);
+        if (result.data === "Success") {
+          navigate("/");
+        } else {
+          navigate("/signup-form");
+          alert("You are not registered");
+        }
+      })
+      .catch((err) => console.log(err));
   };
-
   return (
     <div className="login-container">
-      <p className="login-heading">Welcome back! Log in to your account</p>
+      <h4 className="login-heading">Welcome back! Log in to your account</h4>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
           <label htmlFor="email">Email</label>

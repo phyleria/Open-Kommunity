@@ -1,6 +1,14 @@
 import React from "react";
 import "./Homepage.css";
 import { Link } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt, faClock } from "@fortawesome/free-regular-svg-icons";
 
 function HomePage() {
   return (
@@ -92,8 +100,12 @@ function HomePage() {
               />
               <div className="event-details">
                 <h4>Monthly Community Meetup</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
               </div>
             </div>
             <div className="event-card">
@@ -103,8 +115,12 @@ function HomePage() {
               />
               <div className="event-details">
                 <h4>Guest Speaker Session</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> August 20, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
               </div>
             </div>
             <div className="event-card">
@@ -114,8 +130,12 @@ function HomePage() {
               />
               <div className="event-details">
                 <h4>Open Talk Baraza</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> September 05, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
               </div>
             </div>
           </div>
@@ -133,58 +153,59 @@ function HomePage() {
       </main>
 
       <footer>
-        <footer>
-          <div class="footer-container">
-            <div class="footer-section">
-              <h4>About Us</h4>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h4>About Us</h4>
+            <p>
+              Fostering collaboration through open-source projects and events.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li>
+                <Link to="hero-section" smooth={true} duration={500}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="about-us-section" smooth={true} duration={500}>
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="featured-events-section" smooth={true} duration={500}>
+                  Events
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-section contact-us">
+            <h4>Contact Us</h4>
+            <div className="contact-info">
               <p>
-                Fostering collaboration through open-source projects and events.
+                <FontAwesomeIcon icon={faEnvelope} /> info@open.com
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faPhone} /> +254 738 2782 28
               </p>
             </div>
-            <div class="footer-section">
-              <h4>Quick Links</h4>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">About us</a>
-                </li>
-                <li>
-                  <a href="#">Events</a>
-                </li>
-                <li>
-                  <a href="#">Join us</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-section">
-              <h4>Contact Us</h4>
-              <p>Email: info@open.com</p>
-              <p>Phone: +254 738 2782 28</p>
-            </div>
-            <div class="footer-section">
-              <h4>Follow Us</h4>
-              <ul className="social-icons">
-                <li>
-                  <a href="#">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
+          </div>
+          <div className="footer-section follow-us">
+            <h4>Follow Us</h4>
+            <div className="social-icons">
+              <a href="#" className="social-icon">
+                <FontAwesomeIcon icon={faFacebookF} />
+              </a>
+              <a href="#" className="social-icon">
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+              <a href="#" className="social-icon">
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
             </div>
           </div>
-        </footer>
+        </div>
       </footer>
     </div>
   );

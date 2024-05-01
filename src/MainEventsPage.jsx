@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Homepage.css";
 import { Link } from "react-scroll";
+import { faCalendarAlt, faClock } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function MainEventsPage() {
   const [events, setEvents] = useState([]);
@@ -50,7 +52,7 @@ function MainEventsPage() {
 
       <section className="banner-section" color="white">
         <div className="banner-text">
-          <p>Upcoming Events</p>
+          <h4>Upcoming Events</h4>
         </div>
       </section>
 
@@ -64,8 +66,12 @@ function MainEventsPage() {
               />
               <div className="event-details">
                 <h4>Monthly Community Meetup</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
                 <a href="/event-rsvp-form" className="register-button">
                   RSVP
                 </a>
@@ -78,8 +84,12 @@ function MainEventsPage() {
               />
               <div className="event-details">
                 <h4>Guest Speaker Session</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
                 <a href="/event-rsvp-form" className="register-button">
                   RSVP
                 </a>
@@ -92,8 +102,12 @@ function MainEventsPage() {
               />
               <div className="event-details">
                 <h4>Open Talk Baraza</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
                 <a href="/event-rsvp-form" className="register-button">
                   RSVP
                 </a>
@@ -104,7 +118,7 @@ function MainEventsPage() {
 
         <section className="banner-section-2" color="white">
           <div className="banner-text">
-            <p>Past Events</p>
+            <h4>Past Events</h4>
           </div>
         </section>
 
@@ -117,8 +131,57 @@ function MainEventsPage() {
               />
               <div className="event-details">
                 <h4>Monthly Community Meetup</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
+              </div>
+            </div>
+            <div className="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1576085898323-218337e3e43c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1lZXR1cCUyMGFmcmljYW58ZW58MHx8MHx8fDA%3D"
+                alt=""
+              />
+              <div className="event-details">
+                <h4>Monthly Community Meetup</h4>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
+              </div>
+            </div>
+            <div className="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1576085898323-218337e3e43c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1lZXR1cCUyMGFmcmljYW58ZW58MHx8MHx8fDA%3D"
+                alt=""
+              />
+              <div className="event-details">
+                <h4>Monthly Community Meetup</h4>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
+              </div>
+            </div>
+            <div className="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1576085898323-218337e3e43c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1lZXR1cCUyMGFmcmljYW58ZW58MHx8MHx8fDA%3D"
+                alt=""
+              />
+              <div className="event-details">
+                <h4>Monthly Community Meetup</h4>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
               </div>
             </div>
             <div className="event-card">
@@ -128,8 +191,12 @@ function MainEventsPage() {
               />
               <div className="event-details">
                 <h4>Guest Speaker Session</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
               </div>
             </div>
             <div className="event-card">
@@ -139,17 +206,20 @@ function MainEventsPage() {
               />
               <div className="event-details">
                 <h4>Open Talk Baraza</h4>
-                <p>Date: 2024-01-25</p>
-                <p>Time: 7:00 PM</p>
+                <p>
+                  <FontAwesomeIcon icon={faCalendarAlt} /> July 21, 2024
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faClock} /> 7:00 PM
+                </p>
               </div>
             </div>
           </div>
 
-          {pastEvents.length > maxEventsToDisplay && (
-            <a href="#view-more" className="view-more-button">
-              View More Past Events
-            </a>
-          )}
+          {/* {pastEvents.length > maxEventsToDisplay && ( */}
+          <a href="#view-more" className="view-more">
+            View More Past Events
+          </a>
         </section>
       </main>
 
