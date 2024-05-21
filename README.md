@@ -10,28 +10,28 @@ Welcome to the Open-Kommunity Template! This project is designed to help school 
 - Event management system
 - Responsive design for seamless use on all devices
 
-### Installation
+# Installation
 
-1. **Clone the repository:**
-   ```bash
+## Clone the repository:
+```bash
    git clone https://github.com/your-username/Open-Kommunity.git
    cd Open-Kommunity
    ```
 
-2. **Install backend dependencies:**
+## Install backend dependencies:
 
 ```bash
 cd server
 npm install
 ```
 
-3. **Install frontend dependencies:**
+## Install frontend dependencies:**
 
 ```bash
 cd ../client
 npm install
 ```
-4. **Configuration**
+## Configuration
 ### Backend Configuration:
 
 Create a .env file in the backend directory.
@@ -50,7 +50,7 @@ Add the following environment variable:
 REACT_APP_API_URL=http://localhost:3001/api
 ```
 
-6. **Running the Application**
+## Running the Application
 Start the backend server:
 
 ```bash
