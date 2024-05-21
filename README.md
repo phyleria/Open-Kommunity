@@ -53,7 +53,7 @@ npm start
 Start the frontend server:
 ```bash
 cd ../frontend
-npm start
+npm run dev
 ```
 Open your browser and navigate to http://localhost:3000 to see the application running.
 
