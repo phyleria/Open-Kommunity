@@ -32,7 +32,7 @@ cd ../client
 npm install
 ```
 4. **Configuration**
-Backend Configuration:
+### Backend Configuration:
 
 Create a .env file in the backend directory.
 Add the following environment variables:
@@ -41,7 +41,7 @@ PORT=3001
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
 ```
-5. **Frontend Configuration:**
+### Frontend Configuration:
 
 Create a .env file in the frontend directory.
 Add the following environment variable:
