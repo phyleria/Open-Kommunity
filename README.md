@@ -2,14 +2,6 @@
 
 Welcome to the Open-Kommunity Template! This project is designed to help school clubs create a professional and customizable online platform using the MERN stack (MongoDB, Express, React, Node.js).
 
-## Features
-
-- User-friendly interface for easy navigation
-- Customizable pages for club information, events, and announcements
-- Member management system
-- Event management system
-- Responsive design for seamless use on all devices
-
 # Installation
 
 ## Clone the repository:
