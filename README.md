@@ -10,12 +10,6 @@ Welcome to the Open-Kommunity Template! This project is designed to help school 
 - Event management system
 - Responsive design for seamless use on all devices
 
-
-- **Frontend:** React
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **Styling:** CSS/Bootstrap
-
 ### Installation
 
 1. **Clone the repository:**
@@ -34,7 +28,6 @@ npm install
 3. **Install frontend dependencies:**
 
 ```bash
-Copy code
 cd ../client
 npm install
 ```
