@@ -10,24 +10,11 @@ Welcome to the Open-Kommunity Template! This project is designed to help school 
 - Event management system
 - Responsive design for seamless use on all devices
 
-## Technologies Used
 
 - **Frontend:** React
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Styling:** CSS/Bootstrap
-
-## Getting Started
-
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-Ensure you have the following installed on your local machine:
-
-- Node.js
-- MongoDB
-- Git
 
 ### Installation
 
@@ -40,8 +27,7 @@ Ensure you have the following installed on your local machine:
 2. **Install backend dependencies:**
 
 ```bash
-Copy code
-cd backend
+cd server
 npm install
 ```
 
@@ -49,7 +35,7 @@ npm install
 
 ```bash
 Copy code
-cd ../frontend
+cd ../client
 npm install
 ```
 4. **Configuration**
@@ -58,8 +44,7 @@ Backend Configuration:
 Create a .env file in the backend directory.
 Add the following environment variables:
 ```plaintext
-Copy code
-PORT=5000
+PORT=3001
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
 ```
@@ -67,20 +52,20 @@ JWT_SECRET=your_jwt_secret
 
 Create a .env file in the frontend directory.
 Add the following environment variable:
+
 ```plaintext
-Copy code
-REACT_APP_API_URL=http://localhost:5000/api
-Running the Application
+REACT_APP_API_URL=http://localhost:3001/api
 ```
 
+6. **Running the Application**
+Start the backend server:
 
-6. **Start the backend server:**
 ```bash
 cd backend
 npm start
 ```
 
-7. **Start the frontend server:**
+Start the frontend server:
 ```bash
 cd ../frontend
 npm start
@@ -91,7 +76,7 @@ Open your browser and navigate to http://localhost:3000 to see the application r
 Customize the website to fit your school club's needs by editing the React components and backend API routes. Add your own styling and features to make the website unique.
 
 ## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure your code follows the project's style guidelines and includes relevant tests.
+Contributions are welcome! 
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
