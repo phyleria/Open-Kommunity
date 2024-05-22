@@ -66,6 +66,5 @@ Contributions are welcome!
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Acknowledgements
-I was inspired by this [design](https://dribbble.com/shots/18613046-Motoride-Motorcycle-Community-Landing-Page-Animation)
+
 
