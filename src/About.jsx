@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 
 function AboutUsPage() {
   return (
-    <div className="homepage">
+    <div className="about-us">
       <header className="hero-header">
         <nav>
           <div className="nav-links">
