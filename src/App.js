@@ -5,6 +5,7 @@ import MainEventsPage from "./MainEventsPage";
 import SignupForm from "./SignupForm";
 import EventRSVPForm from "./EventRSVPForm";
 import LoginForm from "./login";
+import AboutUsPage from "./About";
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
         <Route path="/signup-form" element={<SignupForm />} />
         <Route path="/event-rsvp-form" element={<EventRSVPForm />} />
         <Route path="/login-form" element={<LoginForm />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
       </Routes>
     </Router>
   );
 }
-
 
 export default App;

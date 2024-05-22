@@ -85,11 +85,12 @@ function HomePage() {
                   alt="Image 3"
                 />
               </div>
-              <button className="join-us-button1">Read More</button>
+              <a href="/about-us" className="join-us-button1">
+                Read More
+              </a>
             </div>
           </div>
         </section>
-
         <section className="featured-events-section">
           <h3>Featured Events</h3>
           <div className="event-cards">
