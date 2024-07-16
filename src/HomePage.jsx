@@ -37,6 +37,10 @@ function HomePage() {
               {" "}
               Login
             </a>
+            <a href="/admin-form" className="admin-button">
+              {" "}
+              Admin
+            </a>
           </div>
         </nav>
       </header>
