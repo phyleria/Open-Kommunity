@@ -61,7 +61,20 @@ a {
 }
 
 .nav-links {
-  margin-right: 30%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sign-out-button {
+  margin-left: 70px;
 }
 
 section {
@@ -419,14 +432,14 @@ h6 {
 
 .stats-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 8px 20px rgba(172, 167, 167, 0.5);
 }
 
 /* Footer styles */
 footer {
   background-color: black;
   color: #ffffff;
-  padding: 20px 0;
+  margin: 0 auto;
 }
 
 .footer-container {
@@ -437,13 +450,7 @@ footer {
   margin: 0 auto;
 }
 
-.footer-section ul {
-  padding: 0;
-  margin: 0;
-}
-
 .footer-section ul li {
-  margin-bottom: 10px;
   margin-left: 20px;
 }
 
@@ -480,7 +487,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 .signup-heading {
@@ -490,12 +497,12 @@ footer {
 }
 
 .signup-form {
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
-  height: 380px;
+  height: 410px;
 }
 .event-buttons {
   display: flex;
@@ -523,6 +530,7 @@ input {
   cursor: pointer;
   width: 100%;
   margin: auto;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   font-family: "Comfortaa", sans-serif;
@@ -537,6 +545,35 @@ input {
   margin-left: 1%;
   font-size: 0.9rem;
   margin-top: 35px;
+}
+
+.google-button {
+  background-color: #fe9f29;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  width: 30%;
+  height: 12px;
+  margin-left: 23px;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  margin: 20px 0;
+}
+
+.divider hr {
+  flex-grow: 1;
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0 10px;
 }
 
 /*Main-events-page*/
@@ -624,15 +661,18 @@ button:hover {
 .login-heading {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .login-form {
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
+  height: 270px;
 }
 
 .admin-form {
@@ -656,6 +696,7 @@ input {
   padding: 0px;
   font-size: 16px;
   border-radius: 5px;
+  border-color: #000000;
   background-color: #ffffff;
 }
 
@@ -672,8 +713,10 @@ input {
   margin: auto;
   width: 100%;
 }
-.login-button {
-  display: inline-block;
+.signup-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fe9f29;
   color: #fff;
   text-decoration: none;
@@ -737,6 +780,7 @@ input {
 .form-group input[type="text"],
 .form-group input[type="date"],
 .form-group input[type="time"],
+.form-group input[type="password"],
 .form-group input[type="email"] {
   width: calc(100% - 20px);
   padding: 10px;
@@ -1055,4 +1099,58 @@ input {
 
 .modal-content .btn-primary:hover {
   background-color: #ff7f00;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-message {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.welcome-message {
+  color: #ff7f00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links-logged-in ul {
+  justify-content: center;
+}
+
+.sign-out-button {
+  padding: 5px 15px;
+  background-color: #fe9f29;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 20%;
+  height: 3vh;
+  position: absolute;
+  align-content: center;
+}
+
+.love {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

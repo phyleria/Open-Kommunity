@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Homepage.css";
 import { Link } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,11 +11,30 @@ import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarAlt, faClock } from "@fortawesome/free-regular-svg-icons";
 
 function HomePage() {
+  const [userFirstName, setUserFirstName] = useState(null);
+
+  useEffect(() => {
+    const email = localStorage.getItem("userEmail");
+    if (email) {
+      const firstName = email.split("@")[0].split(".")[0];
+      setUserFirstName(firstName);
+    }
+  }, []);
+
+  const handleSignOut = () => {
+    localStorage.removeItem("userEmail");
+    setUserFirstName(null);
+  };
+
   return (
     <div className="homepage">
       <header className="hero-header">
         <nav>
-          <div className="nav-links">
+          <div
+            className={`nav-links ${
+              userFirstName ? "nav-links-logged-in" : ""
+            }`}
+          >
             <ul>
               <li>
                 <Link to="hero-section" smooth={true} duration={500}>
@@ -32,15 +51,34 @@ function HomePage() {
                   Events
                 </Link>
               </li>
+
+              <li>
+                {userFirstName ? (
+                  <div className="user-info">
+                    <div className="welcome-message">
+                      Welcome {userFirstName}!
+                    </div>
+                    <a
+                      href="#"
+                      className="sign-out-button"
+                      onClick={handleSignOut}
+                    >
+                      Sign Out
+                    </a>
+                  </div>
+                ) : (
+                  <>
+                    <a href="/login-form" className="join-us-button">
+                      Login
+                    </a>
+
+                    <a href="/admin-form" className="admin-button">
+                      Admin
+                    </a>
+                  </>
+                )}
+              </li>
             </ul>
-            <a href="/login-form" className="join-us-button">
-              {" "}
-              Login
-            </a>
-            <a href="/admin-form" className="admin-button">
-              {" "}
-              Admin
-            </a>
           </div>
         </nav>
       </header>
@@ -55,9 +93,11 @@ function HomePage() {
               <h2 style={{ fontSize: "6rem", marginTop: "0" }}>
                 Find Your Purpose.
               </h2>
-              <a href="/signup-form" class="join-button">
-                Join Our Club
-              </a>
+              {!userFirstName && (
+                <a href="/signup-form" className="join-button">
+                  Join Our Club
+                </a>
+              )}
             </div>
           </div>
         </section>
@@ -156,35 +196,15 @@ function HomePage() {
           <div className="stats-box">+100 impacted</div>
         </section>
       </main>
-
       <footer>
-        <div class="footer-container">
-          <div class="footer-section">
+        <div className="footer-container">
+          <div className="footer-section">
             <h4>About Us</h4>
             <p>
               Fostering collaboration through open-source projects and events.
             </p>
           </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li>
-                <Link to="hero-section" smooth={true} duration={500}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="about-us-section" smooth={true} duration={500}>
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="featured-events-section" smooth={true} duration={500}>
-                  Events
-                </Link>
-              </li>
-            </ul>
-          </div>
+
           <div className="footer-section contact-us">
             <h4>Contact Us</h4>
             <div className="contact-info">
@@ -210,6 +230,9 @@ function HomePage() {
               </a>
             </div>
           </div>
+        </div>
+        <div className="love">
+          <p> Made with ❤️ by Phylis</p>
         </div>
       </footer>
     </div>
