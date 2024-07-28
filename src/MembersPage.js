@@ -2,9 +2,9 @@ import React from "react";
 import TeamTable from "./components/TeamTable";
 import "./Homepage.css";
 
-const TeamPage = () => {
+const MembersPage = () => {
   return (
-    <div className="team">
+    <div className="members">
       <div className="team-header">
         <h1>Members</h1>
         <div className="header-buttons">
@@ -29,4 +29,4 @@ const TeamPage = () => {
   );
 };
 
-export default TeamPage;
+export default MembersPage;

@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Homepage.css";
+import { collection, addDoc } from "firebase/firestore";
+import { db, storage } from "./firebase-config";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./Homepage.css";
 
-function CreateEventPage() {
+function CreateEventPage({ incrementEventCount }) {
   const [event, setEvent] = useState({
     title: "",
     date: "",
     startTime: "",
     endTime: "",
     description: "",
-    guests: "",
     locationType: "Virtual",
     link: "",
+    imageUrl: "",
   });
 
+  const [image, setImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,17 +31,45 @@ function CreateEventPage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsModalOpen(true);
-    console.log("Event Created:", event);
+    setIsLoading(true);
+    setError("");
+
+    try {
+      let imageUrl = "";
+      if (image) {
+        const imageRef = ref(storage, `events/${image.name}`);
+        await uploadBytes(imageRef, image);
+        imageUrl = await getDownloadURL(imageRef);
+      }
+
+      await addDoc(collection(db, "events"), {
+        ...event,
+        imageUrl,
+      });
+
+      setIsModalOpen(true);
+      incrementEventCount();
+    } catch (error) {
+      console.error("Error adding event: ", error);
+      setError("Failed to create event. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setTimeout(() => {
-      navigate("/analytics");
-    }, 3000);
+      navigate("/admin");
+    }, 1000);
   };
 
   return (
@@ -50,6 +83,7 @@ function CreateEventPage() {
             name="title"
             value={event.title}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="form-group">
@@ -59,6 +93,7 @@ function CreateEventPage() {
             name="date"
             value={event.date}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="form-group time-group">
@@ -69,6 +104,7 @@ function CreateEventPage() {
               name="startTime"
               value={event.startTime}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -78,6 +114,7 @@ function CreateEventPage() {
               name="endTime"
               value={event.endTime}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -88,15 +125,7 @@ function CreateEventPage() {
             name="description"
             value={event.description}
             onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Guests</label>
-          <input
-            type="email"
-            name="guests"
-            value={event.guests}
-            onChange={handleChange}
+            required
           />
         </div>
         <div className="form-group location-group">
@@ -109,6 +138,7 @@ function CreateEventPage() {
                 value="Virtual"
                 checked={event.locationType === "Virtual"}
                 onChange={handleChange}
+                required
               />{" "}
               Virtual
             </label>
@@ -119,6 +149,7 @@ function CreateEventPage() {
                 value="Physical"
                 checked={event.locationType === "Physical"}
                 onChange={handleChange}
+                required
               />{" "}
               Physical
             </label>
@@ -132,18 +163,33 @@ function CreateEventPage() {
               name="link"
               value={event.link}
               onChange={handleChange}
+              required
             />
           </div>
         )}
+        <div className="form-group">
+          <label>Event Image</label>
+          <input type="file" onChange={handleImageChange} />
+        </div>
         <div className="event-buttons">
-          <button type="submit" className="btn btn-primary">
-            Create
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={isLoading}
+          >
+            {isLoading ? "Creating..." : "Create"}
           </button>
-          <button type="button" className="btn btn-secondary">
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => navigate("/admin")}
+          >
             Cancel
           </button>
         </div>
       </form>
+
+      {error && <p className="error-message">{error}</p>}
 
       {isModalOpen && (
         <div className="modal">

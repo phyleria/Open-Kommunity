@@ -1,26 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import TeamMemberRow from "./TeamMemberRow";
 import TeamChart from "./TeamChart";
-
-const teamMembers = [
-  {
-    name: "Bagus Fikri",
-    email: "bagusfikri@gmail.com",
-    role: "Admin",
-    status: "Enabled",
-    lastLogin: "Jul 13, 2024 07:31 PM",
-  },
-  {
-    name: "Phylis Atieno",
-    email: "atienophyllis032@gmail.com",
-    role: "Member",
-    status: "Disabled",
-    lastLogin: "Jul 13, 2024 05:25 PM",
-  },
-  // Add more team members as needed
-];
+import { TeamContext } from "../TeamContext";
+import "../Homepage.css";
 
 const TeamTable = () => {
+  const { teamMembers } = useContext(TeamContext);
+
   return (
     <div>
       <table className="team-table">
@@ -30,8 +16,6 @@ const TeamTable = () => {
             <th>NAME</th>
             <th>EMAIL</th>
             <th>ROLE</th>
-            <th>2FA STATUS</th>
-            <th>LAST LOGIN</th>
           </tr>
         </thead>
         <tbody>

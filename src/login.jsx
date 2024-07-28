@@ -9,7 +9,7 @@ function LoginForm() {
     email: "",
     password: "",
   });
-  const [isLoading, setIsLoading] = useState(false); // State for loading
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -18,8 +18,8 @@ function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Start loading
-    console.log("Submitting form with data:", formData); // Debugging line
+    setIsLoading(true);
+    console.log("Submitting form with data:", formData);
 
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -27,14 +27,14 @@ function LoginForm() {
         formData.email,
         formData.password
       );
-      console.log("User signed in:", userCredential.user); // Debugging line
-      localStorage.setItem("userEmail", formData.email); // Save user email to local storage
-      navigate("/"); // Navigate to the home page on success
+      console.log("User signed in:", userCredential.user);
+      localStorage.setItem("userEmail", formData.email);
+      navigate("/");
     } catch (error) {
-      console.error("Error during sign in:", error); // Debugging line
-      alert("Failed to sign in. Please check your credentials."); // Handle errors
+      console.error("Error during sign in:", error);
+      alert("Failed to sign in. Please check your credentials.");
     } finally {
-      setIsLoading(false); // Stop loading
+      setIsLoading(false);
     }
   };
 

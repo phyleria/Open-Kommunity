@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Homepage.css";
 import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
+import { auth } from "./firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -12,18 +14,42 @@ import { faCalendarAlt, faClock } from "@fortawesome/free-regular-svg-icons";
 
 function HomePage() {
   const [userFirstName, setUserFirstName] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const email = localStorage.getItem("userEmail");
     if (email) {
       const firstName = email.split("@")[0].split(".")[0];
       setUserFirstName(firstName);
+
+      if (email === process.env.REACT_APP_ADMIN_EMAIL) {
+        setIsAdmin(true);
+      }
     }
   }, []);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleViewMoreEvents = (e) => {
+    e.preventDefault();
+    if (user) {
+      navigate("/main-events-page");
+    } else {
+      navigate("/signup-form");
+    }
+  };
 
   const handleSignOut = () => {
     localStorage.removeItem("userEmail");
     setUserFirstName(null);
+    setIsAdmin(false);
   };
 
   return (
@@ -51,9 +77,28 @@ function HomePage() {
                   Events
                 </Link>
               </li>
-
               <li>
-                {userFirstName ? (
+                {isAdmin ? (
+                  <>
+                    <div className="user-info">
+                      <div className="welcome-message">
+                        Welcome {userFirstName}!
+                      </div>
+                      <div className="stubborn">
+                        <a
+                          href="#"
+                          className="sign-off-button"
+                          onClick={handleSignOut}
+                        >
+                          Sign Out
+                        </a>
+                      </div>
+                      <a href="/admin" className="manage-community-button">
+                        Manage Community
+                      </a>
+                    </div>
+                  </>
+                ) : userFirstName ? (
                   <div className="user-info">
                     <div className="welcome-message">
                       Welcome {userFirstName}!
@@ -67,15 +112,11 @@ function HomePage() {
                     </a>
                   </div>
                 ) : (
-                  <>
+                  <div class="join-us-container">
                     <a href="/login-form" className="join-us-button">
                       Login
                     </a>
-
-                    <a href="/admin-form" className="admin-button">
-                      Admin
-                    </a>
-                  </>
+                  </div>
                 )}
               </li>
             </ul>
@@ -185,7 +226,11 @@ function HomePage() {
             </div>
           </div>
 
-          <a href="/main-events-page" className="view-more-button">
+          <a
+            href="/main-events-page"
+            className="view-more-button"
+            onClick={handleViewMoreEvents}
+          >
             View More Events
           </a>
         </section>
@@ -214,6 +259,10 @@ function HomePage() {
               <p>
                 <FontAwesomeIcon icon={faPhone} /> +254 738 2782 28
               </p>
+              <a href="/newsletter">
+                <FontAwesomeIcon icon={faEnvelope} /> Subscribe to our
+                newsletter
+              </a>
             </div>
           </div>
           <div className="footer-section follow-us">
@@ -231,9 +280,7 @@ function HomePage() {
             </div>
           </div>
         </div>
-        <div className="love">
-          <p> Made with ❤️ by Phylis</p>
-        </div>
+        <div className="love">{/* <p> Made with ❤️ by Phylis</p> */}</div>
       </footer>
     </div>
   );

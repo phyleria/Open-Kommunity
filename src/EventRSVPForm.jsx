@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useHistory hook for navigation
+import { db } from "./firebase-config"; // Import Firestore
+import { collection, addDoc } from "firebase/firestore";
 import "./Homepage.css";
 
 const EventRSVPForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [attending, setAttending] = useState(false);
-  const [registered, setRegistered] = useState(false); 
-  const navigate = useNavigate(); 
+  const [registered, setRegistered] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { name, email, attending });
-    setRegistered(true);
+    try {
+      await addDoc(collection(db, "eventRSVPs"), {
+        name,
+        email,
+        attending,
+      });
+      setRegistered(true);
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
   };
 
   useEffect(() => {
     if (registered) {
       const timeoutId = setTimeout(() => {
-        navigate("/main-events-page"); 
+        navigate("/main-events-page");
       }, 4000);
 
       return () => clearTimeout(timeoutId);
@@ -65,9 +75,7 @@ const EventRSVPForm = () => {
         </div>
         <button type="submit">Submit RSVP</button>
       </form>
-      {registered && (
-       <h6>Congratulations, you are successfully registered!</h6>
-      )}
+      {registered && <h6>Congratulations, you are successfully registered!</h6>}
     </div>
   );
 };

@@ -38,3 +38,36 @@ exports.sendSignupConfirmation = functions.firestore
         }
       });
     });
+
+exports.sendNewsletter = functions.https.onCall(async (data, context) => {
+  const subject = data.subject;
+  const content = data.content;
+
+  try {
+    const subscribersSnapshot = await admin
+        .firestore()
+        .collection("subscribers")
+        .get();
+    const subscribers = subscribersSnapshot.docs.map((doc) => doc.data().email);
+
+    const mailOptions = {
+      from: `Open Kommunity <${gmailEmail}>`,
+      bcc: subscribers,
+      subject: subject,
+      text: content,
+    };
+
+    await transporter.sendMail(mailOptions);
+    const statsRef = admin
+        .firestore()
+        .collection("stats")
+        .doc("emailStats");
+    await statsRef.update({
+      emailCount: admin.firestore.FieldValue.increment(1),
+    });
+    return {success: true};
+  } catch (error) {
+    console.error("Error sending newsletter:", error);
+    return {success: false, error: error.message};
+  }
+});

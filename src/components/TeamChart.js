@@ -24,10 +24,10 @@ const TeamChart = ({ data }) => {
     labels: data.map((member, index) => member.name),
     datasets: [
       {
-        label: "Team Members",
+        label: "Club Members",
         data: data.map((_, index) => index + 1),
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
-        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: "rgba(255, 165, 0, 0.6)",
+        borderColor: "rgba(255, 140, 0, 1)",
         borderWidth: 1,
       },
     ],
@@ -49,7 +49,7 @@ const TeamChart = ({ data }) => {
       },
       title: {
         display: true,
-        text: "Team Members Overview",
+        text: "Club Members Overview",
         font: {
           size: 20,
           family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",

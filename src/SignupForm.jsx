@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Homepage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase-config";
+import { TeamContext } from "./TeamContext";
 
 function SignupForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { addTeamMember } = useContext(TeamContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,12 +19,24 @@ function SignupForm() {
         email,
         password
       );
-      console.log(userCredential);
+      const user = userCredential.user;
+
+      const name = email.split("@")[0].split(".")[0];
+
+      addTeamMember({
+        name,
+        email,
+        role: "Member",
+        status: "Enabled",
+        lastLogin: new Date().toLocaleString(),
+      });
+
       navigate("/login-form");
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <div className="signup-container">
       <h4 className="signup-heading">Join Our Community</h4>
@@ -56,7 +70,6 @@ function SignupForm() {
         <div className="divider">
           <hr /> <span>Or Continue With</span> <hr />
         </div>
-
         <img
           src={`${process.env.PUBLIC_URL}/google-logo.png`}
           alt="Google logo"
