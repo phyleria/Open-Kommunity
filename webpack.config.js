@@ -1,11 +1,11 @@
-const path = require('path');
-
 module.exports = {
   resolve: {
     fallback: {
-        "http": require.resolve("stream-http"),
-        "net": require.resolve("net-browserify")
-
-    }
-  }
+      path: require.resolve("path-browserify"),
+      os: require.resolve("os-browserify/browser"),
+      http: require.resolve("stream-http"),
+      net: require.resolve("net-browserify"),
+      crypto: require.resolve("crypto-browserify"),
+    },
+  },
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Homepage.css";
 import { Link } from "react-scroll";
 import { useNavigate } from "react-router-dom";
+
 import { auth } from "./firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +12,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarAlt, faClock } from "@fortawesome/free-regular-svg-icons";
+require("dotenv").config();
 
 function HomePage() {
   const [userFirstName, setUserFirstName] = useState(null);

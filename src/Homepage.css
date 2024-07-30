@@ -790,6 +790,16 @@ input {
   margin-bottom: 15px;
 }
 
+.form-event {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 10px;
+}
+
+.form-event label {
+  font-size: 12px;
+}
+
 .form-group label {
   display: block;
   margin-bottom: 5px;

@@ -167,8 +167,8 @@ function CreateEventPage({ incrementEventCount }) {
             />
           </div>
         )}
-        <div className="form-group">
-          <label>Event Image</label>
+        <div className="form-event">
+          <label>Event Image (300 x 200)</label>
           <input type="file" onChange={handleImageChange} />
         </div>
         <div className="event-buttons">
