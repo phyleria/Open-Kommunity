@@ -1,0 +1,215 @@
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.wave-emoji {
+    display: inline-block;
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+}
+
+.admin {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: "Comfortaa", sans-serif;
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.greeting p {
+    margin: 5px 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 15px;
+    font-family: "Comfortaa", sans-serif;
+    margin-left: 20px;
+}
+
+.team-page-buttons {
+    display: flex;
+}
+
+.chart-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    width: 45%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.chart-box h3 {
+    margin-top: 0; 
+    width: 100%;
+    text-align: center; 
+}
+
+.team-page-buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 10px;
+    font-weight: 400;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Comfortaa", sans-serif;
+}
+
+.view-members-button {
+    background-color: #ff7f00;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 4px;
+    font-weight: 300;
+    transition: background-color 0.3s ease;
+    width: 130px;
+    height: 37px;
+    font-family: "Comfortaa", sans-serif;
+    margin-left: 20px;
+}
+
+.view-members-button:hover,
+.create-event-button:hover,
+.generate-report-button:hover {
+    background-color: #782518;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stat-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 18%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.stat-value {
+    font-size: 28px;
+    color: orange;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.chart-box {
+    width: 45%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-box,
+.recent-members {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.summary-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .summary-box canvas {
+    width: 800px !important; /* Set the width of the canvas */
+    height: 300px !important; /* Set the height of the canvas */
+  }
+  
+
+.summary-box h3,
+.recent-members h3 {
+    margin-top: 0; 
+    width: 100%;
+    text-align: center; 
+    font-size: 18px;
+    margin-left: 20px;
+    color: rgb(28, 28, 172);
+}
+
+.activity,
+.feed-title,
+.activity-feed p {
+    color: #333;
+}
+
+
+/* Table Styles */
+.recent-members table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .recent-members th, .recent-members td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .recent-members th {
+    background-color: orange;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  
+  .recent-members tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .recent-members tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .recent-members tr:last-of-type {
+    border-bottom: 2px solid ora;
+  }
+  
+  .recent-members tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }

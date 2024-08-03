@@ -19,13 +19,19 @@ ChartJS.register(
   Legend
 );
 
-const TeamChart = ({ data }) => {
+const TeamChart = ({ members }) => {
+  if (!members || !Array.isArray(members)) {
+    return <p>No team data available</p>;
+  }
+
+  console.log("TeamChart members:", members); // Debugging log
+
   const chartData = {
-    labels: data.map((member, index) => member.name),
+    labels: members.map((member) => member.name),
     datasets: [
       {
         label: "Club Members",
-        data: data.map((_, index) => index + 1),
+        data: members.map((_, index) => index + 1), // Use actual data here if available
         backgroundColor: "rgba(255, 165, 0, 0.6)",
         borderColor: "rgba(255, 140, 0, 1)",
         borderWidth: 1,
@@ -115,6 +121,10 @@ const TeamChart = ({ data }) => {
       <Bar data={chartData} options={options} />
     </div>
   );
+};
+
+TeamChart.defaultProps = {
+  members: [],
 };
 
 export default TeamChart;

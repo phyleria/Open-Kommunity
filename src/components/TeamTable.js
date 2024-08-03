@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import TeamMemberRow from "./TeamMemberRow";
 import TeamChart from "./TeamChart";
-import { TeamContext } from "../TeamContext";
 import "../Homepage.css";
 
-const TeamTable = () => {
-  const { teamMembers } = useContext(TeamContext);
+const TeamTable = ({ members }) => {
+  const sortedMembers = [...members].sort((a, b) => (a.role === "admin" ? -1 : 1));
 
   return (
     <div>
@@ -19,14 +19,25 @@ const TeamTable = () => {
           </tr>
         </thead>
         <tbody>
-          {teamMembers.map((member, index) => (
+          {sortedMembers.map((member, index) => (
             <TeamMemberRow key={index} number={index + 1} member={member} />
           ))}
         </tbody>
       </table>
-      <TeamChart data={teamMembers} />
+      <TeamChart members={members} />
     </div>
   );
+};
+
+TeamTable.propTypes = {
+  members: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      role: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default TeamTable;

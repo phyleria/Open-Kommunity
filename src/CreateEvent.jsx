@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db, storage } from "./firebase-config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./Homepage.css";
@@ -53,6 +53,7 @@ function CreateEventPage({ incrementEventCount }) {
       await addDoc(collection(db, "events"), {
         ...event,
         imageUrl,
+        createdAt: Timestamp.now(),
       });
 
       setIsModalOpen(true);

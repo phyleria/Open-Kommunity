@@ -2,8 +2,9 @@ import React, { useState, useContext } from "react";
 import "./Homepage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase-config";
+import { auth, db } from "./firebase-config";
 import { TeamContext } from "./TeamContext";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 
 function SignupForm() {
   const [email, setEmail] = useState("");
@@ -14,22 +15,23 @@ function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
       const name = email.split("@")[0].split(".")[0];
 
-      addTeamMember({
+      const userDoc = {
         name,
         email,
-        role: "Member",
-        status: "Enabled",
+        role: 'member',
+        status: 'Enabled',
         lastLogin: new Date().toLocaleString(),
-      });
+        createdAt: Timestamp.now(),
+      };
+
+      await setDoc(doc(db, "teamMembers", user.uid), userDoc);
+
+      addTeamMember(userDoc);
 
       navigate("/login-form");
     } catch (error) {

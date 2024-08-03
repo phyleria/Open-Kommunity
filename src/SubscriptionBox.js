@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "./firebase-config";
 import "./Homepage.css";
 
@@ -17,6 +17,7 @@ const SubscriptionBox = ({ setEmailSubscribers }) => {
       try {
         await addDoc(collection(db, "subscribers"), {
           email: email,
+          createdAt: Timestamp.now(),
         });
         alert("Subscribed successfully!");
         setEmail("");
@@ -38,7 +39,7 @@ const SubscriptionBox = ({ setEmailSubscribers }) => {
         </button>
         <h2>Sign up</h2>
         <p>Subscribe to our email newsletter</p>
-        <div className="input-container">
+        <div className="newsletter-container">
           <input
             type="email"
             value={email}

@@ -19,16 +19,18 @@ exports.sendSignupConfirmation = functions.firestore
     .document("eventRSVPs/{docId}")
     .onCreate((snap, context) => {
       const data = snap.data();
+      const emailId = context.params.docId; // Use the document ID as the email ID
 
       const mailOptions = {
         from: gmailEmail,
         to: data.email,
         subject: "Open Kommunity - Event Signup Confirmation",
-        text:
-        `Hello ${data.name},\n\n` +
-        `Thank you for signing up for our community event.\n\n` +
-        `We look forward to hosting you!\n\n` +
-        `Best regards,\nOpen Kommunity Team`,
+        html:
+        `Hello ${data.name},<br><br>` +
+        `Thank you for signing up for our community event.<br><br>` +
+        `We look forward to hosting you!<br><br>` +
+        `Best regards,<br>Open Kommunity Team<br><br>` +
+        `<img src="${functions.config().project.url}/trackEmailOpen?emailId=${emailId}" width="1" height="1" />`,
       };
       return transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
@@ -42,6 +44,7 @@ exports.sendSignupConfirmation = functions.firestore
 exports.sendNewsletter = functions.https.onCall(async (data, context) => {
   const subject = data.subject;
   const content = data.content;
+  const emailId = context.auth.uid; // Use the user's UID as the email ID
 
   try {
     const subscribersSnapshot = await admin
@@ -54,7 +57,8 @@ exports.sendNewsletter = functions.https.onCall(async (data, context) => {
       from: `Open Kommunity <${gmailEmail}>`,
       bcc: subscribers,
       subject: subject,
-      text: content,
+      html: `${content}<br><br>` +
+            `<img src="${functions.config().project.url}/trackEmailOpen?emailId=${emailId}" width="1" height="1" />`,
     };
 
     await transporter.sendMail(mailOptions);
@@ -69,5 +73,33 @@ exports.sendNewsletter = functions.https.onCall(async (data, context) => {
   } catch (error) {
     console.error("Error sending newsletter:", error);
     return {success: false, error: error.message};
+  }
+});
+
+exports.trackEmailOpen = functions.https.onRequest(async (req, res) => {
+  const { emailId } = req.query;
+
+  if (!emailId) {
+    res.status(400).send('Missing emailId');
+    return;
+  }
+
+  try {
+    const emailOpenRef = admin.firestore().collection('emailEngagement').doc(emailId);
+    await emailOpenRef.set({
+      opened: admin.firestore.FieldValue.increment(1),
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    }, { merge: true });
+
+    // Serve a 1x1 transparent pixel
+    const pixel = Buffer.from(
+      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAgAB/ax0f5kAAAAASUVORK5CYII=',
+      'base64'
+    );
+    res.set('Content-Type', 'image/png');
+    res.send(pixel);
+  } catch (error) {
+    console.error('Error tracking email open:', error);
+    res.status(500).send('Internal Server Error');
   }
 });

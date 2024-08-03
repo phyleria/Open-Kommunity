@@ -12,7 +12,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarAlt, faClock } from "@fortawesome/free-regular-svg-icons";
-require("dotenv").config();
 
 function HomePage() {
   const [userFirstName, setUserFirstName] = useState(null);
@@ -96,8 +95,7 @@ function HomePage() {
                         </a>
                       </div>
                       <a href="/admin" className="manage-community-button">
-                        Manage Community
-                      </a>
+Dashboard                      </a>
                     </div>
                   </>
                 ) : userFirstName ? (

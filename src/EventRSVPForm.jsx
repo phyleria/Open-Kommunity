@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useHistory hook for navigation
-import { db } from "./firebase-config"; // Import Firestore
-import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom"; 
+import { db } from "./firebase-config"; 
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import "./Homepage.css";
 
 const EventRSVPForm = () => {
@@ -18,6 +18,7 @@ const EventRSVPForm = () => {
         name,
         email,
         attending,
+        createdAt: serverTimestamp()
       });
       setRegistered(true);
     } catch (error) {
